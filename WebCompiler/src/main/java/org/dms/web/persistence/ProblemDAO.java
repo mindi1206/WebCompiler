@@ -34,5 +34,5 @@ public interface ProblemDAO {
 	public List<ProblemVO> searchProblemListByCategoryAndLevel(String searchType, String searchInput, String category, int level, Criteria criteria) throws Exception;
 	public int searchProblemCountByCategoryAndLevel(String searchType, String searchInput, String category, int level) throws Exception;
 	// 문제 등록시 중복 확인
-	public boolean checkId(String value) throws Exception;
+	public boolean checkId(int value) throws Exception;
 }

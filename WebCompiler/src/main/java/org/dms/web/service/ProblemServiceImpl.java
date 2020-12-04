@@ -156,7 +156,7 @@ public class ProblemServiceImpl implements ProblemService {
 	}
 
 	@Override
-	public boolean checkId(String value) throws Exception {
+	public boolean checkId(int value) throws Exception {
 		return problemDAO.checkId(value);
 	}
 

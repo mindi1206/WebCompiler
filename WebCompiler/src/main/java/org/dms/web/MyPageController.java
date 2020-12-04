@@ -153,7 +153,9 @@ public class MyPageController {
 	@ResponseBody
 	public Map<String, Object> openModal(
 			int index, 
-			int page, 
+			int page,
+			int problem_level, 
+			String category_name,
 			String search_category, 
 			String search, 
 			HttpSession session, 
@@ -165,11 +167,20 @@ public class MyPageController {
 		List<CodeBoardVO> codeBoardList = null;
 		if(search != "") {
 			codeBoardList = codeBoardService.getCodeBoardListBySearch(user.getUser_id(), search_category, search, criteria);
-		} else {
+		}
+		
+		if(problem_level == 0 && category_name.equals("unselected")){	
 			codeBoardList = codeBoardService.getCodeBoardList(user.getUser_id(), criteria);
 		}
 		
+		else {
+			codeBoardList = codeBoardService.getCodeBoardList_filter(user.getUser_id(), criteria, problem_level, category_name);
+		}
 		
+		for(int  i = 0; i<codeBoardList.size(); i++) {
+			logger.info(codeBoardList.toString());
+		}
+
 		map.put("codeBoard", codeBoardList.get(index));
 		
 		return map;

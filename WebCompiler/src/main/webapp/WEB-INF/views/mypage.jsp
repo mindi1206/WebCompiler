@@ -399,6 +399,12 @@
 			let index = node.id;
 			index = index.replace("tr","");
 			console.log(index);
+
+			var level = document.getElementById("problem_level")
+			var category = document.getElementById("category_name");
+
+			var level_value = level.options[level.selectedIndex].value;
+			var category_value = category.options[category.selectedIndex].value;
 			
 			if(innerDoc == null) {
 				console.log("this is null");	
@@ -422,7 +428,9 @@
 					 	"index": index,
 					 	"page": page_,
 					 	"search_category": search_category,
-					 	"search": search
+					 	"search": search,
+					 	"problem_level": level_value,
+				        "category_name": category_value
 					 },  
 				 success: function(data) {
 					 const result = data.codeBoard;

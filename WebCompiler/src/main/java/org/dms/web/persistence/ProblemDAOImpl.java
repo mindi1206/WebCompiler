@@ -316,7 +316,7 @@ public class ProblemDAOImpl implements ProblemDAO {
 	}
 
 	@Override
-	public boolean checkId(String value) throws Exception {
+	public boolean checkId(int value) throws Exception {
 		int checkNum = sqlSession.selectOne(namespace + ".check_problem_exist", value);
 		if(checkNum == 1) {
 			return true;

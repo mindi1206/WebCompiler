@@ -223,6 +223,8 @@
     	async function id_check(e) {
     		e.preventDefault();
     		var problem_id = $('#problem_id').val();
+    		alert(problem_id);
+    		
     		if(problem_id == ""){ 
                 return false;
             }
@@ -233,6 +235,7 @@
 			            "problem_id": problem_id
 			        },
 	            success: function(data){
+		 
 	            	// 있는 문제
 		            if(data.flag){
 		            	$("#id_check_alert").html("<img id='alert_img' style='vertical-align: middle; margin-right:0.2em;' width='15' height='15' src='/resources/images/alert.png'></img>이미 등록된 문제입니다.");

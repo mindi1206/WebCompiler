@@ -1184,11 +1184,12 @@ public class ProblemController {
 	
 	@RequestMapping(value="/problem/idcheck.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> problemcheck(String value) throws Exception {
+	public Map<String, Object> problemcheck(int problem_id) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		boolean flag = false; // 없는문제
-		flag = problemService.checkId(value);
+		flag = problemService.checkId(problem_id);
+		logger.info(problem_id + " " + flag);
 		map.put("flag", flag);
 	
 		return map;

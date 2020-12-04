@@ -33,15 +33,11 @@ public class HomeController {
 		return "main";		
 	}
 	
-	@RequestMapping(value = "/404", method = RequestMethod.GET)
-	public String error(Model model, HttpSession session) throws Exception {
-		return "modaltest";		
+	@RequestMapping(value = "/ajax", method = RequestMethod.GET)
+	public String ajax(Model model, HttpSession session) throws Exception {
+		return "ajaxtest";		
 	}
-	
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String login(Model model, HttpSession session) throws Exception {
-//		return "signin";		
-//	}
+
 	
 	
 }
